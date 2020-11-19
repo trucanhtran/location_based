@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Google Map</h2>
+
+    <button onclick="getLocation()">Try it</button>
+    <img src="" />
+    <p id="demo"></p>
+    <script>
+      function getLocation() {
+        var x = document.getElementById("demo");
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+          x.innerHTML = "Geoloction is not supported by this browser";
+        }
+      }
+      function showPosition(position) {
+        x.innerHTML =
+          "Latitude:" +
+          position.coords.latitude +
+          "<br>Longitude:" +
+          position.coords.longitude;
+        /*
+      var latlon=position.coords.latitude + ","+position.coords.longtitude;
+      var img_url="https://maps.googleapis.com/maps/api/staticmap?center=
+      "+latlon+"&zoom=14&size=400x300&sensor=false&key=YOUR_KEY";
+      document.getElementById("mapholder").innerHTML="<img src:'"+img_url+"'/>";*/
+      }
+    </script>
+  </body>
+</html>
